@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 
 typedef struct Node 
@@ -20,11 +21,12 @@ void createTree(Tree **root)
 // Inserir uma nova raiz
 Tree* insertRoot(Tree *root, int valor)
 {
-    root->valor = valor;
-    root->esq = NULL;
-    root->dir = NULL;
+    Tree *auxRoot = malloc(sizeof(Tree));
+    auxRoot->valor = valor;
+    auxRoot->esq = NULL;
+    auxRoot->dir = NULL;
 
-    return root;
+    return auxRoot;
 }
 
 // Inserir na arvore
@@ -88,6 +90,7 @@ int main(int argc, char const *argv[])
         scanf("%d", &qtdNumeros);
         Tree *aux = binaryTree;
         binaryTree = NULL;
+        free(aux);
 
         for(int j = 0; j < qtdNumeros; j++)
         {
