@@ -13,9 +13,10 @@ typedef struct Node
 
 
 // Criando uma arvore
-void createTree(Tree **root)
+int createTree(Tree **root)
 {
     *root = NULL;
+    return root;
 }
 
 // Inserir uma nova raiz
@@ -30,12 +31,12 @@ Tree* insertRoot(Tree *root, int valor)
 }
 
 // Inserir na arvore
-int insertTree(Tree *root, int valor)
+Tree* insertTree(Tree *root, int valor)
 {
     if(root == NULL)  
     { 
-        root = insertRoot(root, valor);
-        return root;
+        return insertRoot(createTree(valor), valor);
+        
     }
     else if(valor <= root->valor)
     {
@@ -53,7 +54,7 @@ void inOrdem(Tree *root)
     if(root != NULL)
     {
         inOrdem(root->esq);
-        printf("\n%i", root->valor);
+        printf(" %d", root->valor);
         inOrdem(root->dir);
     }
 }
@@ -62,7 +63,7 @@ void preOrdem(Tree *root)
 {
     if(root != NULL)
     {
-        printf("\n%i", root->valor);
+        printf(" %d", root->valor);
         preOrdem(root->esq);
         preOrdem(root->dir);
     }
@@ -74,7 +75,7 @@ void posOrdem(Tree *root)
     {
         posOrdem(root->esq);
         posOrdem(root->dir);
-        printf("\n%i", root->valor);
+        printf(" %d", root->valor);
     }
 }
 
