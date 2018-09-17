@@ -21,7 +21,6 @@ Tree* insertTree(Tree *root, int valor)
         auxRoot->valor = valor;
         auxRoot->esq = NULL;
         auxRoot->dir = NULL;
-        return auxRoot;
         root = auxRoot;
         
     }
