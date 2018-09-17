@@ -22,6 +22,7 @@ Tree* insertTree(Tree *root, int valor)
         auxRoot->esq = NULL;
         auxRoot->dir = NULL;
         return auxRoot;
+        root = auxRoot;
         
     }
     else if(valor <= root->valor)
@@ -32,6 +33,8 @@ Tree* insertTree(Tree *root, int valor)
     {
         root->dir = insertTree(root->dir, valor);
     }
+    
+    return root;
 }
 
 
